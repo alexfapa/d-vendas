@@ -1,0 +1,54 @@
+<div class="alert alert-success" role="alert" *ngIf="message">
+  <string>{{message.text}}</string>
+</div>
+<div class="row">
+  <div class="col-md-10">
+      <div class="box">
+          <div class="box-header with-border">
+              <h3 class="box-title">Lista de Produtos</h3>
+          </div>
+        </div>
+          <div class="box-header with-border" >
+            <button type="button" class="btn btn-primary" (click)="loginComponent()">Login</button>
+            <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
+            <button class="btn btn-success pull-right" >Novo</button>
+          </div>
+          <div class="box-header with-border" >
+
+          </div>
+          <div class="box-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                      <th style="width: 10px" scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Preço</th>
+                      <th style="width: 10px" scope="col">Editar</th>
+                      <th style="width: 10px" scope="col">Deletar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let produto of listProduto; let i=index">
+                      <td scope="col">{{ produto.id }}</td>
+                      <td scope="col">{{ produto.nome }}</td>
+                      <td scope="col">R$ {{ produto.preco }},00</td>
+                      <td style="width: 10px">
+                        <button class="btn btn-primary" (click)="edit(produto.id)">Editar</button>
+                      </td>
+                      <td style="width: 10px">
+                        <button class="btn btn-danger" (click)="delete(produto.id)">Deletar</button>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <!--<div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                  <li><a href="" (click)="setPreviousPage($event)">&laquo;</a></li>
+                  <li *ngFor="let p of pages; let i=index">
+                      <a [ngClass]="{'pagination-focus' : i == page}" href="" (click)="setPage(i, $event)">{{i+1}}</a>
+                  </li>
+                  <li><a href="" (click)="setNextPage($event)">&raquo;</a></li>
+              </ul>
+          </div>-->
+      </div>
